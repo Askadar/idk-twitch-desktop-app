@@ -1,0 +1,32 @@
+{
+  "name": "idk-twitch-desktop-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@tauri-apps/api": ">=2.0.0-beta.0",
+    "@tauri-apps/plugin-shell": ">=2.0.0-beta.0"
+  },
+  "devDependencies": {
+    "@iconify-json/ph": "^1.1.12",
+    "@iconify/svelte": "^3.1.6",
+    "@sveltejs/vite-plugin-svelte": "^3.0.1",
+    "@tauri-apps/cli": ">=2.0.0-beta.0",
+    "@tsconfig/svelte": "^5.0.2",
+    "@unocss/preset-icons": "^0.59.4",
+    "@unocss/reset": "^0.59.4",
+    "svelte": "^4.2.8",
+    "svelte-check": "^3.4.6",
+    "tslib": "^2.6.0",
+    "typescript": "^5.0.2",
+    "unocss": "^0.59.4",
+    "vite": "^5.0.0"
+  }
+}
