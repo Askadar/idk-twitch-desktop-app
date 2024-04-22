@@ -1,6 +1,7 @@
 <script lang="ts">
 	// import Greet from './lib/Greet.svelte'
 	import Chat from './widgets/Chat.svelte'
+	import Poll from './widgets/Poll.svelte'
 	import Queue from './widgets/Queue.svelte'
 	import Redeems from './widgets/Redeems.svelte'
 </script>
@@ -10,6 +11,7 @@
 		<i class="i-ph:house w-10 h-10"></i>
 	</aside>
 	<main class="flex-1 flex flex-wrap flex-row gap-6">
+		<Poll />
 		<Chat />
 		<Queue />
 		<Redeems />
