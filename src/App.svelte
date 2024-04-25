@@ -11,8 +11,8 @@
 		<i class="i-ph:house w-10 h-10"></i>
 	</aside>
 	<main class="flex-1 flex flex-wrap flex-row gap-6">
-		<Poll />
 		<Chat />
+		<Poll />
 		<Queue />
 		<Redeems />
 	</main>
