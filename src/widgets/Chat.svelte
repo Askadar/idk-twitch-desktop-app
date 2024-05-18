@@ -5,16 +5,20 @@
 	// listen to the `click` event and get a function to remove the event listener
 	// there's also a `once` function that subscribes to an event and automatically unsubscribes the listener on the first event
 	/**
-	 * @type {{ name: String; message: String }[]}
+	 *
+	 * @typedef {{ name: string; message: string; emotes: {char_range: {start: number, end: number}, code: string, id: string}[] }} Message
+	 * @type {Message[]}
 	 */
-	let messages = [{
-		name: 'test',
-		message: `test message that's been prefilled`
-	}]
-	let unsub
+	let messages = []
+	let unsub;
 	listen('new-message', (event) => {
-		console.log(event)
-		messages.push(event.payload)
+		console.log(event.payload)
+		/**  @type {Message} */
+		const m = event.payload
+		for (let e of m.emotes) {
+			m.message = m.message.replaceAll(e.code, `<img class="h-8 inline-block" src="https://static-cdn.jtvnw.net/emoticons/v2/${e.id}/default/light/2.0" />`)
+		}
+		messages.push(m)
 		messages = messages.slice(-10)
 		// event.event is the event name (useful if you want to use a single callback fn for multiple event types)
 		// event.payload is the payload object
@@ -28,7 +32,7 @@
 	</aside>
 	<div class="px-6 py-3 bg-white rounded-lg gap-1">
 		{#each messages as message}
-			<p><span class="mr-1">{message.name}:</span><span>{message.message}</span></p>
+			<p><span class="mr-1">{message.name}:</span><span class="inline-block">{@html message.message}</span></p>
 		{/each}
 	</div>
 </div>
