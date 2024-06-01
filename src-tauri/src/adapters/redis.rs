@@ -1,4 +1,9 @@
-use redis::AsyncCommands;
+use redis::{AsyncCommands, Client};
+
+pub fn init_redis() -> Client {
+    redis::Client::open("redis://127.0.0.1/").expect("Failed to create redis client")
+}
+
 pub struct RedisStorage {
     r: redis::aio::ConnectionManager,
 }
@@ -45,7 +50,7 @@ impl twitch_irc::login::TokenStorage for RedisStorage {
 
 impl RedisStorage {
     pub async fn new() -> Self {
-        let r = crate::messages::init_redis()
+        let r = init_redis()
             .get_connection_manager()
             .await
             .unwrap();

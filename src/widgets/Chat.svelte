@@ -6,7 +6,7 @@
 	// there's also a `once` function that subscribes to an event and automatically unsubscribes the listener on the first event
 	/**
 	 *
-	 * @typedef {{ name: string; message: string; emotes: {char_range: {start: number, end: number}, code: string, id: string}[] }} Message
+	 * @typedef {{ name: string; message: string; emotes: {url: string, code: string, id: string}[] }} Message
 	 * @type {Message[]}
 	 */
 	let messages = []
@@ -16,7 +16,7 @@
 		/**  @type {Message} */
 		const m = event.payload
 		for (let e of m.emotes) {
-			m.message = m.message.replaceAll(e.code, `<img class="h-8 inline-block" src="https://static-cdn.jtvnw.net/emoticons/v2/${e.id}/default/light/2.0" />`)
+			m.message = m.message.replaceAll(e.code, `<img class="h-8 inline-block" src="${e.url}" />`)
 		}
 		messages.push(m)
 		messages = messages.slice(-10)

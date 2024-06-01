@@ -14,6 +14,6 @@
 		<Chat />
 		<Poll />
 		<Queue />
-		<Redeems />
+		<!-- <Redeems /> -->
 	</main>
 </main>
